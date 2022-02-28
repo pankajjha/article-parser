@@ -1,14 +1,13 @@
 {
-  "version": "6.0.0rc6",
+  "version": "1.0.0",
   "name": "article-parser",
   "description": "To extract main article from given URL",
-  "homepage": "https://ndaidong.github.io/article-parser-demo/",
+  "homepage": "https://github.com/pankajjha/article-parser/",
   "repository": {
     "type": "git",
-    "url": "git@github.com:ndaidong/article-parser.git"
+    "url": "git@github.com:pankajjha/article-parser.git"
   },
-  "author": "@ndaidong",
-  "main": "./dist/cjs/article-parser.js",
+  "author": "@pankajjha",
   "module": "./src/main.js",
   "browser": {
     "linkedom": "./src/browser/linkedom.js",
