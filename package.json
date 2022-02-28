@@ -8,6 +8,7 @@
     "url": "git@github.com:pankajjha/article-parser.git"
   },
   "author": "@pankajjha",
+  "main": "./index.js",
   "module": "./src/main.js",
   "browser": {
     "linkedom": "./src/browser/linkedom.js",
