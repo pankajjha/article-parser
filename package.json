@@ -35,8 +35,10 @@
     "debug": "^4.3.3",
     "html-crush": "^5.0.12",
     "linkedom": "^0.14.2",
+    "request-promise-native": "^1.0.9",
     "sanitize-html": "^2.7.0",
     "string-comparison": "^1.1.0",
+    "undici": "^5.0.0",
     "urlpattern-polyfill": "^1.0.0-rc5"
   },
   "standard": {
