@@ -3,7 +3,7 @@ import { DOMParser } from 'linkedom'
 
 /**
  * @param html {string}
- * @returns {{image: string, author: string, amphtml: string, description: string, canonical: string, source: string, published: string, title: string, url: string, shortlink: string}}
+ * @returns {{image: string, author: string, amphtml: string, description: string, keywords: string, canonical: string, source: string, published: string, title: string, url: string, shortlink: string}}
  */
 export default (html) => {
   const entry = {
@@ -13,6 +13,7 @@ export default (html) => {
     canonical: '',
     title: '',
     description: '',
+    keywords: '',
     image: '',
     author: '',
     source: '',
@@ -38,6 +39,9 @@ export default (html) => {
     'description',
     'og:description',
     'twitter:description'
+  ]
+  const keywordAttrs = [
+    'news_keywords',
   ]
   const imageAttrs = [
     'og:image',
@@ -71,7 +75,7 @@ export default (html) => {
     const content = node.getAttribute('content')
     const property = node.getAttribute('property')?.toLowerCase()
     const name = node.getAttribute('name')?.toLowerCase()
-
+  
     if (sourceAttrs.includes(property) || sourceAttrs.includes(name)) {
       entry.source = content
     }
@@ -83,6 +87,9 @@ export default (html) => {
     }
     if (descriptionAttrs.includes(property) || descriptionAttrs.includes(name)) {
       entry.description = content
+    }
+    if (keywordAttrs.includes(property) || keywordAttrs.includes(name)) {
+      entry.keywords = content
     }
     if (imageAttrs.includes(property) || imageAttrs.includes(name)) {
       entry.image = content

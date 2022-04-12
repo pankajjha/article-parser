@@ -25,12 +25,20 @@ export const extract = async (input) => {
   if (!isValidUrl(input)) {
     throw new Error('Input must be a valid URL')
   }
-  const html = await retrieve(input)
+  let download_start = Date.now();
+  const html = await retrieve(input);
+  let download_end = Date.now();
   if (!html) {
     return null
   }
-
-  return parseFromHtml(html, input)
+  let parse_start = Date.now();
+  let result = await parseFromHtml(html, input);
+  let parse_end = Date.now();
+  let download_time = download_end - download_start;
+  let parse_time = parse_end - parse_start;
+  result.download_time=download_time;
+  result.parse_time=parse_time;
+  return Promise.resolve(result);
 }
 
-export * from './config.js'
+export * from './config.js';
